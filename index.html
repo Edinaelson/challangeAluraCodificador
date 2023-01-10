@@ -20,13 +20,13 @@
 
                 <div class="input-group-append">
                     <button class="btn btn-primary" type="submit" id="send" name="send">Codificar</button>
-                    <button class="btn btn-secondary" type="button">Decodificar</button>
+                    <button class="btn btn-secondary" type="button" id="decod"  onclick="decryptText()">Decodificar</button>
                 </div>
             </form>
 
             <div class="input-group mb-3"></div>
                 <label>
-                    <textarea id="texto_recebido">Nenhuma mensagem encontrada.</textarea></br>
+                    <textarea id="texto_recebido" name="texto_recebido">Nenhuma mensagem encontrada.</textarea></br>
                     <button type="button" class="btn btn-success" onclick="copyToClickBoard()">Copiar</button>
                     <h4>Digite um texto que você deseja criptografar ou descriptografar.</h4>
                 </label>
@@ -48,5 +48,13 @@
             .catch(err => {
                 console.log('Something went wrong', err);
             });
+    }
+</script>
+
+<script>
+    function decryptText() {
+        var inputText = document.getElementById("texto_recebido").value;
+        finalTextId = inputText.replace(/enter/g, "e").replace(/imes/g, "i").replace(/ai/g, "a").replace(/ober/g, "o").replace(/ufat/g, "u");
+        document.getElementById("texto_recebido").innerHTML = finalTextId;
     }
 </script>
