@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+        <script src="calculation.js" defer></script>
+    </head>
+    <body>
+        <div style="padding-left: 40px; padding-right: 40px;">
+
+            <form action="">
+
+                <div class="input-group mb-3" style="padding-top: 30px;">
+                    <input id="texto" name="texto" type="text" class="form-control" placeholder="Digite seu texto">
+                </div>
+
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit" id="send" name="send">Codificar</button>
+                    <button class="btn btn-secondary" type="button">Decodificar</button>
+                </div>
+            </form>
+
+            <div class="input-group mb-3"></div>
+                <label>
+                    <textarea id="texto_recebido">Nenhuma mensagem encontrada.</textarea></br>
+                    <button type="button" class="btn btn-success" onclick="copyToClickBoard()">Copiar</button>
+                    <h4>Digite um texto que você deseja criptografar ou descriptografar.</h4>
+                </label>
+            </div>
+
+        </div>
+
+    </body>
+</html>
+
+<script>
+    function copyToClickBoard() {
+        var content = document.getElementById('texto_recebido').innerHTML;
+
+        navigator.clipboard.writeText(content)
+            .then(() => {
+                console.log("Text copied to clipboard...")
+            })
+            .catch(err => {
+                console.log('Something went wrong', err);
+            });
+    }
+</script>
